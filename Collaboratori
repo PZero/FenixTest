@@ -1,11 +1,14 @@
+
 <div class="bodyCol">
     <h1 class="h1Col">I Collaboratori</h1>
-    <div class="content">
-        <p>Spinti dalla passione per la musica e la voglia di trasmettere la propria esperienza, i nostri insegnanti possono essere considerati come artigiani della musica, abili nel costruirla e capaci nel tramandarla. Vantano collaborazioni con grandi personaggi della musica italiana ed estera e sono spesso presenti sui palchi nazionali e non.</p>
-        <p>&Egrave; fondamentale per noi che la musica venga vissuta in modo sereno e divertente.</p>
-    </div>
-    <div class="slideshow-container">
-        <img id="slideshow" src="https://github.com/PZero/FenixTest/blob/main/Carlo.jpeg?raw=true" alt="Collaboratore">
+    <div class="containerCol">
+        <div class="contentCol">
+            <p>Spinti dalla passione per la musica e la voglia di trasmettere la propria esperienza, i nostri insegnanti possono essere considerati come artigiani della musica, abili nel costruirla e capaci nel tramandarla. Vantano collaborazioni con grandi personaggi della musica italiana ed estera e sono spesso presenti sui palchi nazionali e non.</p>
+            <p>&Egrave; fondamentale per noi che la musica venga vissuta in modo sereno e divertente.</p>
+        </div>
+        <div class="slideshow-containerCol">
+            <img id="slideshow" src="https://github.com/PZero/FenixTest/blob/main/Carlo.jpeg?raw=true" alt="Collaboratore">
+        </div>
     </div>
     <script>
         const images = [
@@ -28,3 +31,4 @@
         setInterval(changeImage, 3000);
     </script>
 </div>
+
