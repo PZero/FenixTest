@@ -10,7 +10,8 @@
             <img id="slideshow" src="https://github.com/PZero/FenixTest/blob/main/Carlo.jpeg?raw=true" alt="Collaboratore">
         </div>
     </div>
-    <script>
+ <script>
+        // Array di immagini per lo slideshow
         const images = [
             "https://github.com/PZero/FenixTest/blob/main/Carlo.jpeg?raw=true",
             "https://github.com/PZero/FenixTest/blob/main/Davide.jpeg?raw=true",
@@ -24,6 +25,8 @@
             "https://github.com/PZero/FenixTest/blob/main/Clarissa.jpeg?raw=true"
         ];
         let index = 0;
+        const slideshow = document.getElementById("slideshow");
+        
         function changeImage() {
             index = (index + 1) % images.length;
             slideshow.src = images[index] + "&timestamp=" + new Date().getTime();
@@ -31,8 +34,39 @@
         
         window.onload = function() {
             setInterval(changeImage, 3000);
+            loadContent(); // Carica il contenuto dinamico all'avvio
         };
-        
-    </script>
-</div>
+
+        // Funzione per caricare contenuti esterni
+        async function loadContent() {
+            try {
+                const directUrl = `https://raw.githubusercontent.com/PZero/FenixTest/refs/heads/main/Collaboratori`;
+                const response = await fetch(directUrl);
+                
+                if (!response.ok) {
+                    throw new Error('Errore nel caricamento del contenuto');
+                }
+                
+                const htmlContent = await response.text();
+                const container = document.getElementById('dynamic-content');
+                container.innerHTML = htmlContent;
+
+                // Esegui eventuali script presenti nel contenuto caricato
+                executeScripts(container);
+            } catch (error) {
+                console.error('Errore di caricamento:', error);
+            }
+        }
+
+        // Funzione per eseguire gli script caricati dinamicamente
+        function executeScripts(container) {
+            const scripts = container.getElementsByTagName("script");
+
+            for (let script of scripts) {
+                const newScript = document.createElement("script");
+                newScript.textContent = script.textContent;
+                document.body.appendChild(newScript);
+            }
+        }
+    </script></div>
 
